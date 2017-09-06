@@ -33,3 +33,7 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    MaximPrihodko\Bundle\UserBundle\:
+        resource: '../../src/MaximPrihodko/Bundle/UserBundle/*'
+        autowire: true
+        public: false
