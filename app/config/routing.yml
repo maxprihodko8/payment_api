@@ -1,3 +1,7 @@
+frontend_panel:
+    resource: "@FrontendPanelBundle/Resources/config/routing.yml"
+    prefix:   /panel
+
 user:
     resource: "@UserBundle/Resources/config/routing.yml"
     prefix:   /user

@@ -21,7 +21,12 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
-            logout:       true
+                #default_target_path: /panel
+                success_handler: redirect.after.login
+            logout:
+                path: /logout
+                target: /
+                success_handler: redirect.after.logout
             anonymous:    true
             # activate different ways to authenticate
 
@@ -35,7 +40,9 @@ security:
 
     role_hierarchy:
         ROLE_USER:          ROLE_USER
-        ROLE_SUPER_ADMIN:   ROLE_USER
+        ROLE_ADMIN:         ROLE_USER
+        ROLE_SUPER_ADMIN:   ROLE_ADMIN
+
 
 
 

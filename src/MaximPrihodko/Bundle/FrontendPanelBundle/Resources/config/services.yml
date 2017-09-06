@@ -1,0 +1,4 @@
+services:
+#    frontend_panel.example:
+#        class: MaximPrihodko\Bundle\FrontendPanelBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

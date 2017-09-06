@@ -5,3 +5,17 @@ services:
     MaximPrihodko\Bundle\UserBundle\Repository\UserRepository:
         factory:    'doctrine.orm.entity_manager:getRepository'
         arguments:  ['MaximPrihodko\Bundle\UserBundle\Entity\User']
+
+    #user.after_login:
+    #    class: MaximPrihodko\Bundle\UserBundle\EventListner\AfterLoginListener
+     #   arguments: ['@router']
+     #   tags:
+     #       - { name: kernel.event_subscriber }
+
+    redirect.after.login:
+        class:  MaximPrihodko\Bundle\UserBundle\Redirection\AfterLoginRedirection
+        arguments: ['@router']
+
+    redirect.after.logout:
+        class: MaximPrihodko\Bundle\UserBundle\Redirection\AfterLogoutRedirection
+        arguments: ['@router']

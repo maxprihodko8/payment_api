@@ -6,7 +6,8 @@
         "psr-4": {
             "AppBundle\\": "src/AppBundle",
             "MaximPrihodko\\Bundle\\ApiBundle\\": "src/MaximPrihodko/Bundle/ApiBundle",
-            "MaximPrihodko\\Bundle\\UserBundle\\": "src/MaximPrihodko/Bundle/UserBundle"
+            "MaximPrihodko\\Bundle\\UserBundle\\": "src/MaximPrihodko/Bundle/UserBundle",
+            "MaximPrihodko\\Bundle\\FrontendPanelBundle\\": "src/MaximPrihodko/Bundle/FrontendPanelBundle"
         },
         "classmap": [
             "app/AppKernel.php",

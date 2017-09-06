@@ -12,7 +12,9 @@ use FOS\UserBundle\Model\User as BaseUser;
  * @ORM\Entity(repositoryClass="MaximPrihodko\Bundle\UserBundle\Repository\UserRepository")
  */
 class User extends BaseUser
-{/**
+{
+    const ROLE_ADMIN = 'ROLE_ADMIN';
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -23,7 +25,7 @@ class User extends BaseUser
 
     /**
      * @var string
-     * @ORM\Column(name="name", type="string")
+     * @ORM\Column(name="name", type="string", nullable=true)
      *
      */
     private $name;
@@ -34,6 +36,8 @@ class User extends BaseUser
      * @ORM\Column(name="status", type="integer")
      */
     private $status;
+
+    protected $salt;
 
     /**
      * Get id
