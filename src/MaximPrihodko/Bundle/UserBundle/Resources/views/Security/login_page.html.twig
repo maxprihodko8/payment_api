@@ -32,11 +32,11 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="css/demo.css" />
-    <link rel="stylesheet" type="text/css" href="css/component.css" />
-    <link rel="stylesheet" type="text/css" href="css/cs-select.css" />
-    <link rel="stylesheet" type="text/css" href="css/cs-skin-boxes.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset("bundles/user/css/normalize.css") }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset("bundles/user/css/demo.css") }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset("bundles/user/css/component.css") }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset("bundles/user/css/cs-select.css") }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset("bundles/user/css/cs-skin-boxes.css") }}" />
 {% endblock %}
 
 {% block body %}
@@ -48,17 +48,6 @@
             {% include '@User/Security/login_content.html.twig' %}
         </div>
 
-        <div class="related">
-            <p>If you enjoyed this demo you might also like:</p>
-            <a href="http://tympanus.net/Development/MinimalForm/">
-                <img src="img/relatedposts/minimalform1-300x162.png" />
-                <h3>Minimal Form Interface</h3>
-            </a>
-            <a href="http://tympanus.net/Development/ButtonComponentMorph/">
-                <img src="img/relatedposts/MorphingButtons-300x162.png" />
-                <h3>Morphing Buttons Concept</h3>
-            </a>
-        </div>
     </div>
 
 {% endblock %}
@@ -67,10 +56,10 @@
 {% block javascripts %}
     {{ parent() }}
 
-    <script src="/js/modernizr.custom.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/selectFx.js"></script>
-    <script src="js/fullscreenForm.js"></script>
+    <script src="{{ asset("bundles/user/js/modernizr.custom.js") }}"></script>
+    <script src="{{ asset("bundles/user/js/classie.js") }}"></script>
+    <script src="{{ asset("bundles/user/js/selectFx.js") }}"></script>
+    <script src="{{ asset("bundles/user/js/fullscreenForm.js") }}"></script>
 
     <script>
         (function() {

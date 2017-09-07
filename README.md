@@ -15,3 +15,7 @@ Config file not updating
 
     bin/console cache:clean -e dev
     bin/console cache:clean -e prod
+    
+All public files from bundles move to web folder
+    
+    app/console assets:install web
