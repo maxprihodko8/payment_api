@@ -12,6 +12,24 @@ services:
      #   tags:
      #       - { name: kernel.event_subscriber }
 
+################ CONTROLLERS
+    MaximPrihodko\Bundle\UserBundle\Controller\SecurityController:
+        class: MaximPrihodko\Bundle\UserBundle\Controller\SecurityController
+        arguments: ['@user.plain_user_object']
+
+###############
+    user.authentication_utils.value_resolver:
+        class: MaximPrihodko\Bundle\UserBundle\ArgumentResolver\AuthenticationUtilsValueResolver
+        arguments: ['@security.token_storage', '@service_container']
+        tags:
+            - { name: controller.argument_value_resolver, priority: 50 }
+
+
+    user.plain_user_object:
+        class: MaximPrihodko\Bundle\UserBundle\Model\UserModelPlainObject
+
+
+
     redirect.after.login:
         class:  MaximPrihodko\Bundle\UserBundle\Redirection\AfterLoginRedirection
         arguments: ['@router']
@@ -19,3 +37,4 @@ services:
     redirect.after.logout:
         class: MaximPrihodko\Bundle\UserBundle\Redirection\AfterLogoutRedirection
         arguments: ['@router']
+

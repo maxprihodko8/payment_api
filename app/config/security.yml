@@ -1,7 +1,7 @@
 # To get started with security, check out the documentation:
 # https://symfony.com/doc/current/security.html
 security:
-
+    access_denied_url: /login
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
 
     providers:
@@ -18,16 +18,24 @@ security:
 
         main:
             pattern: ^/
+            anonymous: ~
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
                 #default_target_path: /panel
                 success_handler: redirect.after.login
+                login_path: user.login
+                check_path: user.login
+
             logout:
                 path: /logout
                 target: /
                 success_handler: redirect.after.logout
             anonymous:    true
+            remember_me:
+                secret:   '%secret%'
+                lifetime: 604800 # 1 week in seconds
+                path:     /
             # activate different ways to authenticate
 
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
@@ -36,7 +44,7 @@ security:
             # https://symfony.com/doc/current/security/form_login_setup.html
             #form_login: ~
     encoders:
-            FOS\UserBundle\Model\UserInterface: bcrypt
+        FOS\UserBundle\Model\UserInterface: bcrypt
 
     role_hierarchy:
         ROLE_USER:          ROLE_USER
@@ -48,6 +56,9 @@ security:
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login-check, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/404, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/, role: ROLE_USER }

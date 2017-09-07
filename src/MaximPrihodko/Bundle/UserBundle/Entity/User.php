@@ -4,6 +4,7 @@ namespace MaximPrihodko\Bundle\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use MaximPrihodko\Bundle\UserBundle\Model\UserModelInterface;
 
 /**
  * User
@@ -11,7 +12,7 @@ use FOS\UserBundle\Model\User as BaseUser;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="MaximPrihodko\Bundle\UserBundle\Repository\UserRepository")
  */
-class User extends BaseUser
+class User extends BaseUser implements UserModelInterface
 {
     const ROLE_ADMIN = 'ROLE_ADMIN';
     /**

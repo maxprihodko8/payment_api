@@ -45,29 +45,9 @@
     <div class="container">
 
         <div class="fs-form-wrap" id="fs-form-wrap">
+            {% include '@User/Security/login_content.html.twig' %}
+        </div>
 
-            <form id="myform" class="fs-form fs-form-full" autocomplete="off">
-                <ol class="fs-fields">
-                    <li>
-                        	<span class="input input--manami">
-							<input class="fs-anim-lower input__field input__field--manami" id="q1" name="q1" type="text"required/>
-							<label class="input__label fs-field-label fs-anim-upper input__label--manami" for="q1"><span class="input__label-content input__label-content--manami">Username</span></label>
-                            </span>
-                    </li>
-                    <li>
-                        <span class="input input--manami">
-							<input class="fs-anim-lower input__field input__field--manami" id="q2" name="q2" type="text"required/>
-							<label class="input__label fs-field-label fs-anim-upper input__label--manami" for="q2"><span class="input__label-content input__label-content--manami">dean@road.us</span></label>
-                            </span>
-                    </li>
-
-
-                </ol><!-- /fs-fields -->
-                <button class="fs-submit" type="submit">Send answers</button>
-            </form><!-- /fs-form -->
-        </div><!-- /fs-form-wrap -->
-
-        <!-- Related demos -->
         <div class="related">
             <p>If you enjoyed this demo you might also like:</p>
             <a href="http://tympanus.net/Development/MinimalForm/">
@@ -79,8 +59,7 @@
                 <h3>Morphing Buttons Concept</h3>
             </a>
         </div>
-
-    </div><!-- /container -->
+    </div>
 
 {% endblock %}
 

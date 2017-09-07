@@ -1,0 +1,32 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+
+
+<form id="myform" class="fs-form fs-form-full" autocomplete="off" action="{{ path("fos_user_security_login") }}" method="post">
+    {% if csrf_token %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+    {% endif %}
+    <ol class="fs-fields">
+        <li>
+            <span class="input input--manami">
+                <input class="fs-anim-lower input__field input__field--manami" id="q1" name="_username" type="text" value="{{ last_username }}" required/>
+                <label class="input__label fs-field-label fs-anim-upper input__label--manami" for="_username">
+                    <span class="input__label-content input__label-content--manami">Логин</span>
+                </label>
+            </span>
+        </li>
+        <li>
+            <span class="input input--manami">
+                <input class="fs-anim-lower input__field input__field--manami" id="q2" name="_password" type="password" required/>
+                <label class="input__label fs-field-label fs-anim-upper input__label--manami" for="_password">
+                    <span class="input__label-content input__label-content--manami">Пароль</span>
+                </label>
+            </span>
+        </li>
+    </ol>
+    <button class="fs-submit" type="submit">Войти</button>
+</form>

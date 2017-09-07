@@ -50,7 +50,7 @@ class AfterLoginListener implements EventSubscriberInterface
 
     public function onUserLoggedIn(FormEvent $event)
     {
-        $url = $this->router->generate('index');
+        $url = $this->router->generate('user.index');
         $event->setResponse(new RedirectResponse($url));
     }
 }

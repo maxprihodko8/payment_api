@@ -1,7 +1,15 @@
-user_homepage:
+user.blog_page:
+    path:     /blog/{slug}
+    defaults: { _controller: UserBundle:Default:blog }
+
+user.index:
     path:     /
     defaults: { _controller: UserBundle:Default:index }
 
-blog_page:
-    path:     /blog/{slug}
-    defaults: { _controller: UserBundle:Default:blog }
+#user.login_check:
+#    path:     /login-check
+#    defaults: { _controller: UserBundle:Security:loginCheck }
+
+user.login:
+    path:     /login
+    defaults: { _controller: UserBundle:Security:login }
