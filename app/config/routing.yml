@@ -1,18 +1,18 @@
+app:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix:   /
+
 frontend_panel:
     resource: "@FrontendPanelBundle/Resources/config/routing.yml"
     prefix:   /panel
 
 user:
     resource: "@UserBundle/Resources/config/routing.yml"
-    prefix:   /user
+    prefix:   /
 
 api:
     resource: "@ApiBundle/Resources/config/routing.yml"
     prefix:   /api
-
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

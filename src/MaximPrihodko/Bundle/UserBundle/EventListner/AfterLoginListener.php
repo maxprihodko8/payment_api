@@ -44,7 +44,7 @@ class AfterLoginListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            FOSUserEvents::SECURITY_IMPLICIT_LOGIN => 'onUserLoggedIn'
+            FOSUserEvents::SECURITY_IMPLICIT_LOGIN => 'onUserLoggedIn',
         ];
     }
 

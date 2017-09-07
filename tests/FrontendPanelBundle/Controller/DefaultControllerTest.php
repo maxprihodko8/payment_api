@@ -1,6 +1,6 @@
 <?php
 
-namespace MaximPrihodko\Bundle\AppBundle\Tests\Controller;
+namespace MaximPrihodko\Bundle\FrontendPanelBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

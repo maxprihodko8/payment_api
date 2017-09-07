@@ -37,6 +37,9 @@ class User extends BaseUser
      */
     private $status;
 
+    /**
+     * @var string
+     */
     protected $salt;
 
     /**

@@ -1,6 +1,7 @@
 user_homepage:
     path:     /
     defaults: { _controller: UserBundle:Default:index }
+
 blog_page:
     path:     /blog/{slug}
     defaults: { _controller: UserBundle:Default:blog }
