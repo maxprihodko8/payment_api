@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+{#% block body %}
     <div>
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
@@ -27,5 +27,125 @@
         {% endblock fos_user_content %}
     </div>
 
+{% endblock %#}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link rel="stylesheet" type="text/css" href="css/cs-select.css" />
+    <link rel="stylesheet" type="text/css" href="css/cs-skin-boxes.css" />
 {% endblock %}
 
+{% block body %}
+    {{ parent() }}
+
+    <div class="container">
+
+        <div class="fs-form-wrap" id="fs-form-wrap">
+
+            <form id="myform" class="fs-form fs-form-full" autocomplete="off">
+                <ol class="fs-fields">
+                    <li>
+                        	<span class="input input--manami">
+							<input class="fs-anim-lower input__field input__field--manami" id="q1" name="q1" type="text"required/>
+							<label class="input__label fs-field-label fs-anim-upper input__label--manami" for="q1"><span class="input__label-content input__label-content--manami">Username</span></label>
+                            </span>
+                    </li>
+                    <li>
+                        <span class="input input--manami">
+							<input class="fs-anim-lower input__field input__field--manami" id="q2" name="q2" type="text"required/>
+							<label class="input__label fs-field-label fs-anim-upper input__label--manami" for="q2"><span class="input__label-content input__label-content--manami">dean@road.us</span></label>
+                            </span>
+                    </li>
+
+
+                </ol><!-- /fs-fields -->
+                <button class="fs-submit" type="submit">Send answers</button>
+            </form><!-- /fs-form -->
+        </div><!-- /fs-form-wrap -->
+
+        <!-- Related demos -->
+        <div class="related">
+            <p>If you enjoyed this demo you might also like:</p>
+            <a href="http://tympanus.net/Development/MinimalForm/">
+                <img src="img/relatedposts/minimalform1-300x162.png" />
+                <h3>Minimal Form Interface</h3>
+            </a>
+            <a href="http://tympanus.net/Development/ButtonComponentMorph/">
+                <img src="img/relatedposts/MorphingButtons-300x162.png" />
+                <h3>Morphing Buttons Concept</h3>
+            </a>
+        </div>
+
+    </div><!-- /container -->
+
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="/js/modernizr.custom.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
+    <script src="js/fullscreenForm.js"></script>
+
+    <script>
+        (function() {
+            var formWrap = document.getElementById( 'fs-form-wrap' );
+
+            [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
+                new SelectFx( el, {
+                    stickyPlaceholder: false,
+                    onChange: function(val){
+                        document.querySelector('span.cs-placeholder').style.backgroundColor = val;
+                    }
+                });
+            } );
+
+            new FForm( formWrap, {
+                onReview : function() {
+                    classie.add( document.body, 'overview' ); // for demo purposes only
+                }
+            } );
+        })();
+    </script>
+    <script>
+        (function() {
+            // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+            if (!String.prototype.trim) {
+                (function() {
+                    // Make sure we trim BOM and NBSP
+                    var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+                    String.prototype.trim = function() {
+                        return this.replace(rtrim, '');
+                    };
+                })();
+            }
+
+            [].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
+                // in case the input is already filled..
+                if( inputEl.value.trim() !== '' ) {
+                    classie.add( inputEl.parentNode, 'input--filled' );
+                }
+
+                // events:
+                inputEl.addEventListener( 'focus', onInputFocus );
+                inputEl.addEventListener( 'blur', onInputBlur );
+            } );
+
+            function onInputFocus( ev ) {
+                classie.add( ev.target.parentNode, 'input--filled' );
+            }
+
+            function onInputBlur( ev ) {
+                if( ev.target.value.trim() === '' ) {
+                    classie.remove( ev.target.parentNode, 'input--filled' );
+                }
+            }
+        })();
+    </script>
+{% endblock %}
