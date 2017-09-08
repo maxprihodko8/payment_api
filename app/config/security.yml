@@ -21,11 +21,13 @@ security:
             anonymous: ~
             form_login:
                 provider: fos_userbundle
-                csrf_token_generator: security.csrf.token_manager
+                #csrf_token_generator: security.csrf.token_manager
                 #default_target_path: /panel
-                success_handler: redirect.after.login
+                #success_handler: redirect.after.login
                 login_path: user.login
                 check_path: user.login
+                success_handler: user.security.authentification_handler
+                failure_handler: user.security.authentification_handler
 
             logout:
                 path: /logout

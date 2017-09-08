@@ -5,8 +5,8 @@
 {% endif %}
 
 
-
-<form id="myform" class="fs-form fs-form-full" autocomplete="off" action="{{ path("fos_user_security_login") }}" method="post">
+<!-- action="{{ path("fos_user_security_login") }}" -->
+<form id="myform" class="fs-form fs-form-full" autocomplete="off" method="post">
     {% if csrf_token %}
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
     {% endif %}
@@ -30,3 +30,4 @@
     </ol>
     <button class="fs-submit" type="submit">Войти</button>
 </form>
+

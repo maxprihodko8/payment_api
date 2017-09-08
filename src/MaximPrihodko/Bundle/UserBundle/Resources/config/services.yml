@@ -29,6 +29,11 @@ services:
         class: MaximPrihodko\Bundle\UserBundle\Model\UserModelPlainObject
 
 
+    user.security.authentification_handler:
+        class: MaximPrihodko\Bundle\UserBundle\Security\AuthenticationHandler
+        arguments: ['@router', '@session']
+
+
 
     redirect.after.login:
         class:  MaximPrihodko\Bundle\UserBundle\Redirection\AfterLoginRedirection
