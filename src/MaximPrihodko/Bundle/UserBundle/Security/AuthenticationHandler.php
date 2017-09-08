@@ -18,11 +18,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface;
+use Symfony\Component\Translation\Translator;
 
 class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, AuthenticationFailureHandlerInterface
 {
     private $router;
     private $session;
+    private $translator;
 
     /**
      * Constructor
@@ -31,10 +33,11 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
      * @param    RouterInterface $router
      * @param    Session $session
      */
-    public function __construct(RouterInterface $router, Session $session)
+    public function __construct(RouterInterface $router, Session $session, Translator $translator)
     {
         $this->router = $router;
         $this->session = $session;
+        $this->translator = $translator;
     }
 
     /**
@@ -74,11 +77,12 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
      * @param    Request $request
      * @param    AuthenticationException $exception
      * @return    Response
+     * @throws \Symfony\Component\Translation\Exception\InvalidArgumentException
      */
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
         if ($request->isXmlHttpRequest()) {
-            $array = array('success' => false, 'message' => $exception->getMessage()); // data to return via JSON
+            $array = array('success' => false, 'message' => $this->translator->trans($exception->getMessage()));
             $response = new Response(json_encode($array));
             $response->headers->set('Content-Type', 'application/json');
 

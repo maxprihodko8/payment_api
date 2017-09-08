@@ -31,7 +31,7 @@ services:
 
     user.security.authentification_handler:
         class: MaximPrihodko\Bundle\UserBundle\Security\AuthenticationHandler
-        arguments: ['@router', '@session']
+        arguments: ['@router', '@session', '@translator.default']
 
 
 

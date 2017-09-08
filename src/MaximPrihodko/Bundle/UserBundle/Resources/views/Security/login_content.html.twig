@@ -1,8 +1,8 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% if error %}
+{#% if error %}
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
+{% endif %#}
 
 
 <!-- action="{{ path("fos_user_security_login") }}" -->
@@ -29,5 +29,6 @@
         </li>
     </ol>
     <button class="fs-submit" type="submit">Войти</button>
+    <span class="error_info" style="color:red;"></span>
 </form>
 
