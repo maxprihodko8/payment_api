@@ -24,7 +24,9 @@
     },
     "require": {
         "php": ">=5.5.9",
+        "deployer/deployer": "v6.0.3",
         "doctrine/doctrine-bundle": "^1.6",
+        "doctrine/doctrine-migrations-bundle": "v1.2.1",
         "doctrine/orm": "^2.5",
         "friendsofsymfony/user-bundle": "v2.0.1",
         "incenteev/composer-parameter-handler": "^2.0",
