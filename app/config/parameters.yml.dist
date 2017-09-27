@@ -17,3 +17,7 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
+
+    fallback_locale: en
+    sender_name: max.prihodko8@gmail.com
+
