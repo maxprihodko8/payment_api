@@ -53,4 +53,3 @@ task('database:rebuild', function () {
     }
 })->desc('Rebuild database')->onHosts('test');
 after('deploy:assetic:dump', 'database:rebuild');
-
