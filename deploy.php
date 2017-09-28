@@ -15,7 +15,7 @@ set('repository', 'git@github.com:maxprihodko8/payment_api.git');
 host('ps3.thehost.com.ua')
     ->user('poolglass1')
     ->identityFile('~/.ssh/id_rsa')
-    ->set('deploy_path', '/var/www/poolglass1/data/www/www.digithive.ru/hs')
+    ->set('deploy_path', '/var/www/poolglass1/data/www/www.digithive.ru/hs_site')
     ->set('bin/php', 'php-7.1 -d disable_functions=')
     ->set('writable_mode', 'chmod')
     ->set('keep_releases', 2)
