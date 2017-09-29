@@ -41,7 +41,6 @@ task('deploy:php_change_version', function () {
 
 after('deploy:failed', 'deploy:unlock');
 
-
 //before('deploy:symlink', 'database:migrate');
 
 task('database:rebuild', function () {
