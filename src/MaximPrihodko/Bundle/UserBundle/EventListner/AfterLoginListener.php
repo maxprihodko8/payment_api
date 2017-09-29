@@ -48,9 +48,9 @@ class AfterLoginListener implements EventSubscriberInterface
         ];
     }
 
-    public function onUserLoggedIn(FormEvent $event)
+    public function onUserLoggedIn()
     {
         $url = $this->router->generate('user.index');
-        $event->setResponse(new RedirectResponse($url));
+        //$event->setResponse(new RedirectResponse($url));
     }
 }

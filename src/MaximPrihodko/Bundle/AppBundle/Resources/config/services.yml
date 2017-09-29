@@ -2,3 +2,7 @@ services:
 #    app.example:
 #        class: MaximPrihodko\Bundle\AppBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    MaximPrihodko\Bundle\UserBundle\Repository\UserRepository:
+        factory:    'doctrine.orm.entity_manager:getRepository'
+        arguments:  ['MaximPrihodko\Bundle\AppBundle\Entity\User']

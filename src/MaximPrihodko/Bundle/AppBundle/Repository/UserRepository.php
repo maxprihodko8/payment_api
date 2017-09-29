@@ -1,6 +1,6 @@
 <?php
 
-namespace MaximPrihodko\Bundle\UserBundle\Repository;
+namespace MaximPrihodko\Bundle\AppBundle\Repository;
 
 /**
  * UserRepository
