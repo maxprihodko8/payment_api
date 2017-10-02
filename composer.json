@@ -23,7 +23,7 @@
         ]
     },
     "require": {
-        "php": ">=7.1",
+        "php": ">=7.0",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-migrations-bundle": "v1.2.1",
         "doctrine/orm": "^2.5",

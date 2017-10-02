@@ -48,20 +48,17 @@
             {% include '@User/Security/login_content.html.twig' %}
         </div>
 
-        <div class="related">
-            <p>If you enjoyed this demo you might also like:</p>
-            {% if app.request.hasPreviousSession %}
-                {% for type, messages in app.session.flashbag.all() %}
-                    {% for message in messages %}
-                        <div class="flash-{{ type }}">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                {% endfor %}
-            {% endif %}
-        </div>
 
     </div>
+
+    <style>
+        body {
+            overflow: hidden;
+        }
+        .overview .fs-form-wrap {
+            height: 100%;
+        }
+    </style>
 
 {% endblock %}
 

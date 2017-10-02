@@ -96,7 +96,7 @@
 
 /* Visibility control of elements */
 .fs-form-full .fs-fields > li,
-.fs-nav-dots, 
+.fs-nav-dots,
 .fs-progress,
 .fs-numbers,
 button.fs-continue,
@@ -144,7 +144,6 @@ button.fs-continue,
 }
 
 .fs-form-overview ol {
-	max-width: ;
 }
 
 .fs-fields > li {
@@ -169,6 +168,7 @@ button.fs-continue,
 	margin: 1em 0 2em;
 	padding: 0 0 2em 0;
 	border-bottom: 2px solid rgba(0,0,0,0.1);
+	height: 82px;
 }
 
 /* Labels & info */
@@ -178,10 +178,11 @@ button.fs-continue,
 
 .fs-fields > li label.fs-field-label {
 	display: inline-block;
-	padding: 0 5px 1em 0;
 	font-weight: 700;
 	pointer-events: none;
-	border-bottom:1px solid #fff;
+	border-bottom:2px solid #fff;
+	height: 90px;
+	line-height: 90px;
 }
 
 .fs-form-full .fs-fields > li label[data-info]::after {
@@ -206,26 +207,26 @@ button.fs-continue,
 }
 
 .fs-form-full .fs-fields > li label[data-info]::before {
-    position: absolute;
-    bottom: 100%;
-   	left: 0;
-    padding: 0 0 10px;
-    min-width: 200px;
+	position: absolute;
+	bottom: 100%;
+	left: 0;
+	padding: 0 0 10px;
+	min-width: 200px;
 	content: attr(data-info);
 	font-size: 0.4em;
 	color: #6a7b7e;
-    opacity: 0;
-    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-    transition: opacity 0.3s, transform 0.3s;
-    -webkit-transform: translate3d(0,-5px,0);
-    transform: translate3d(0,-5px,0);
-    pointer-events: none;
+	opacity: 0;
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+	-webkit-transform: translate3d(0,-5px,0);
+	transform: translate3d(0,-5px,0);
+	pointer-events: none;
 }
 
 .fs-form-full .fs-fields > li label[data-info]:hover::before {
-    opacity: 1;
-    -webkit-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
+	opacity: 1;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
 }
 
 .fs-form-full .fs-fields > li label:hover ~ .fs-info,
@@ -240,7 +241,7 @@ button.fs-continue,
 .fs-fields input {
 	display: block;
 	margin: 0;
-	padding: 0 0 0.15em;
+	padding: 0;
 	width: 100%;
 	border: none;
 	border-bottom: 2px solid rgba(0,0,0,0.2);
@@ -254,13 +255,13 @@ button.fs-continue,
 
 .fs-fields input:invalid {
 	box-shadow: none; /* removes red shadow in FF*/
-	
+
 }
 
 .fs-form-overview .fs-fields input {
 	border-bottom-color: transparent;
 	color: rgba(0,0,0,0.5);
-	
+
 }
 
 .fs-fields [required] {
@@ -268,7 +269,7 @@ button.fs-continue,
 	background-position: top right;
 	background-size: 18px;
 	background-repeat: no-repeat;
-	
+
 }
 
 .fs-fields input:focus {
@@ -649,8 +650,7 @@ button.fs-continue {
 button.fs-continue {
 	position: absolute;
 	right: 0;
-	bottom: 0;
-	margin: 0 40px 60px 0;
+	margin: 27% 20% 0 0;
 	font-size: 1.25em;
 }
 
@@ -799,7 +799,7 @@ button.fs-continue:hover {
 
 /* Remove IE clear cross */
 input[type=text]::-ms-clear {
-    display: none;
+	display: none;
 }
 
 /* Adjust form for smaller screens */
@@ -901,7 +901,7 @@ input[type=text]::-ms-clear {
 	font-weight: 400;
 	font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	-webkit-appearance: none; /* for box shadows to show on iOS */
-	
+
 }
 
 .input__field:focus {
@@ -938,17 +938,17 @@ input[type=text]::-ms-clear {
 	margin-bottom: 2em;
 	z-index: 100;
 	opacity: 0;
-	
+
 }
 
 .input__label--manami {
 	width: 100%;
 	position: absolute;
 	text-align: left;
-	padding: 0.5em 0;
+	padding: 0.2em 0;
 	pointer-events: none;
 	font-size: 1em;
-	top:-80px;
+	top:-90px;
 }
 .input__label--manami::before,
 .input__label--manami::after {
@@ -982,6 +982,7 @@ input[type=text]::-ms-clear {
 	opacity: 1;
 	-webkit-transition: opacity 0s 0.2s;
 	transition: opacity 0s 0.2s;
+	height: 83px;
 }
 
 .input__field--manami:focus + .input__label--manami .input__label-content--manami,
