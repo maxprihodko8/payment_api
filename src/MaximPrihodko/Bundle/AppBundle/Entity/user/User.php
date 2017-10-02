@@ -1,6 +1,6 @@
 <?php
 
-namespace MaximPrihodko\Bundle\AppBundle\Entity;
+namespace MaximPrihodko\Bundle\AppBundle\Entity\user;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;

@@ -6,7 +6,7 @@
  * Time: 16:08
  */
 
-namespace MaximPrihodko\Bundle\AppBundle\Entity;
+namespace MaximPrihodko\Bundle\AppBundle\Entity\user;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -39,6 +39,29 @@ class UserData extends User
      * @ORM\Column(name="status", type="integer")
      */
     private $status;
+
+    /**
+     * @var int
+     * @ORM\Column(name="company_id", type="integer")
+     * @ORM\OneToOne(targetEntity="MaximPrihodko\Bundle\AppBundle\Entity\Company", inversedBy="id")
+     */
+    private $company_id;
+
+    /**
+     * @return mixed
+     */
+    public function getCompanyId()
+    {
+        return $this->company_id;
+    }
+
+    /**
+     * @param mixed $company_id
+     */
+    public function setCompanyId($company_id)
+    {
+        $this->company_id = $company_id;
+    }
 
     /**
      * @return string
