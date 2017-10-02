@@ -6,17 +6,15 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Voter Роль (Role keyword is used in project for ACL)
+ * VoterAccess
  *
- * @ORM\Table(name="voter")
- * @ORM\Entity(repositoryClass="MaximPrihodko\Bundle\AppBundle\Repository\voter\VoterRepository")
+ * @ORM\Table(name="voter_access")
+ * @ORM\Entity(repositoryClass="MaximPrihodko\Bundle\AppBundle\Repository\voter\VoterAccessRepository")
  */
-class Voter
+class VoterAccess
 {
-
     public function __construct()
     {
-        $this->groups = new ArrayCollection();
         $this->roles = new ArrayCollection();
     }
 
@@ -44,19 +42,11 @@ class Voter
     private $isActive;
 
     /**
-     * @var VoterGroup[]
-     *
-     * @ORM\ManyToMany(targetEntity="MaximPrihodko\Bundle\AppBundle\Entity\voter\VoterGroup", mappedBy="voters")
-     */
-    private $groups;
-
-    /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="MaximPrihodko\Bundle\AppBundle\Entity\voter\VoterAccess", mappedBy="roles")
+     * @ORM\ManyToMany(targetEntity="MaximPrihodko\Bundle\AppBundle\Entity\voter\Voter", inversedBy="groups")
      */
     private $roles;
-
 
     /**
      * Get id
@@ -73,7 +63,7 @@ class Voter
      *
      * @param string $name
      *
-     * @return Voter
+     * @return VoterAccess
      */
     public function setName($name)
     {
@@ -97,7 +87,7 @@ class Voter
      *
      * @param boolean $isActive
      *
-     * @return Voter
+     * @return VoterAccess
      */
     public function setIsActive($isActive)
     {
@@ -117,14 +107,9 @@ class Voter
     }
 
     /**
-     * @return ArrayCollection
+     * @return mixed
      */
-    public function getGroups(): ArrayCollection
-    {
-        return $this->groups;
-    }
-
-    public function getRoles(): ArrayCollection
+    public function getRoles() : ArrayCollection
     {
         return $this->roles;
     }

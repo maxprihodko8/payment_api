@@ -10,6 +10,7 @@ namespace MaximPrihodko\Bundle\UserBundle\Security;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
@@ -18,7 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface;
-use Symfony\Component\Translation\Translator;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, AuthenticationFailureHandlerInterface
 {
@@ -33,7 +34,7 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
      * @param    RouterInterface $router
      * @param    Session $session
      */
-    public function __construct(RouterInterface $router, Session $session, Translator $translator)
+    public function __construct(RouterInterface $router, SessionInterface $session, TranslatorInterface $translator)
     {
         $this->router = $router;
         $this->session = $session;
