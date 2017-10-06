@@ -4,9 +4,12 @@ namespace MaximPrihodko\Bundle\AppBundle\Entity\user;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use JMS\Serializer\Annotation as JMSSerializer;
 
 /**
  * User
+ *
+ * @JMSSerializer\ExclusionPolicy("all")
  *
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="MaximPrihodko\Bundle\AppBundle\Repository\user\UserRepository")
@@ -22,6 +25,7 @@ class User extends BaseUser
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
+     * @JMSSerializer\Expose
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;

@@ -8,9 +8,11 @@
 
 namespace MaximPrihodko\Bundle\AppBundle\Entity\user;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * Class UserData
+ * @Serializer\ExclusionPolicy("all")
  * @package MaximPrihodko\Bundle\AppBundle\Entity
  * @ORM\Entity(repositoryClass="MaximPrihodko\Bundle\AppBundle\Repository\user\UserDataRepository")
  */
@@ -46,7 +48,6 @@ class UserData extends User
      * @ORM\OneToOne(targetEntity="MaximPrihodko\Bundle\AppBundle\Entity\Company", inversedBy="id")
      */
     private $company_id;
-
     /**
      * @return mixed
      */

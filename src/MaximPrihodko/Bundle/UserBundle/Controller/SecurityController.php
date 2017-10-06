@@ -22,7 +22,6 @@ class SecurityController extends Controller
             ? $this->get('security.csrf.token_manager')->getToken('authenticate')->getValue()
             : null;
 
-
         return $this->render(
             '@User/Security/login_page.html.twig',
             [

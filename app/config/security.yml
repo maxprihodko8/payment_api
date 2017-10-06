@@ -21,9 +21,6 @@ security:
             anonymous: ~
             form_login:
                 provider: fos_userbundle
-                #csrf_token_generator: security.csrf.token_manager
-                #default_target_path: /panel
-                #success_handler: redirect.after.login
                 login_path: user.login
                 check_path: user.login
                 success_handler: user.security.authentification_handler
@@ -38,13 +35,6 @@ security:
                 secret:   '%secret%'
                 lifetime: 604800 # 1 week in seconds
                 path:     /
-            # activate different ways to authenticate
-
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-            #http_basic: ~
-
-            # https://symfony.com/doc/current/security/form_login_setup.html
-            #form_login: ~
     encoders:
         FOS\UserBundle\Model\UserInterface: bcrypt
 
@@ -53,10 +43,9 @@ security:
         ROLE_ADMIN:         ROLE_USER
         ROLE_SUPER_ADMIN:   ROLE_ADMIN
 
-
-
-
     access_control:
+        - { path: ^/api, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login-check, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }

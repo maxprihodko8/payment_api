@@ -3,11 +3,13 @@
 namespace MaximPrihodko\Bundle\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * Company
  *
  * @ORM\Table(name="company")
+
  * @ORM\Entity(repositoryClass="MaximPrihodko\Bundle\AppBundle\Repository\CompanyRepository")
  */
 class Company

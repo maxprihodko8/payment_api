@@ -23,6 +23,16 @@ class AppKernel extends Kernel
             new MaximPrihodko\Bundle\FrontendPanelBundle\FrontendPanelBundle(),
             new MaximPrihodko\Bundle\AppBundle\AppBundle(),
 
+            new \FOS\RestBundle\FOSRestBundle(),
+            new \JMS\SerializerBundle\JMSSerializerBundle(),
+
+            new \Bazinga\Bundle\FakerBundle\BazingaFakerBundle(),
+
+            new \Sonata\AdminBundle\SonataAdminBundle(),
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new \Sonata\BlockBundle\SonataBlockBundle(),
+            new \Knp\Bundle\MenuBundle\KnpMenuBundle(),
+
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
