@@ -103,3 +103,8 @@ sonata_block:
     blocks:
         sonata.admin.block.admin_list:
             contexts:   [admin]
+knp_menu:
+    twig:  # use "twig: false" to disable the Twig extension and the TwigRenderer
+        template: knp_menu.html.twig
+    templating: false # if true, enables the helper for PHP templates
+    default_renderer: twig
