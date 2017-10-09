@@ -19,9 +19,10 @@ class UserAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('username', 'text')
-            ->add('password', 'text')
-            ->add('email', 'text')
+            ->with('Общие данные пользователя')
+                ->add('username', 'text')
+                ->add('password', 'text')
+                ->add('email', 'text')
             ->end();
     }
 
