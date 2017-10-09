@@ -7,7 +7,8 @@
             "MaximPrihodko\\Bundle\\ApiBundle\\": "src/MaximPrihodko/Bundle/ApiBundle",
             "MaximPrihodko\\Bundle\\UserBundle\\": "src/MaximPrihodko/Bundle/UserBundle",
             "MaximPrihodko\\Bundle\\FrontendPanelBundle\\": "src/MaximPrihodko/Bundle/FrontendPanelBundle",
-            "MaximPrihodko\\Bundle\\AppBundle\\": "src/MaximPrihodko/Bundle/AppBundle"
+            "MaximPrihodko\\Bundle\\AppBundle\\": "src/MaximPrihodko/Bundle/AppBundle",
+            "MaximPrihodko\\Bundle\\AdminBundle\\": "src/MaximPrihodko/Bundle/AdminBundle"
         },
         "classmap": [
             "app/AppKernel.php",

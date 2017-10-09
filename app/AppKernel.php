@@ -33,7 +33,7 @@ class AppKernel extends Kernel
             new \Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
-
+            new MaximPrihodko\Bundle\AdminBundle\AdminBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

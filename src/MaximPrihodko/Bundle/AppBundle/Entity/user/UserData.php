@@ -12,7 +12,11 @@ use JMS\Serializer\Annotation as Serializer;
 
 /**
  * Class UserData
- * @Serializer\ExclusionPolicy("all")
+ *
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="dtype", type="string")
+ * @ORM\DiscriminatorMap({"user" = "User", "userData" = "UserData"})
+ *
  * @package MaximPrihodko\Bundle\AppBundle\Entity
  * @ORM\Entity(repositoryClass="MaximPrihodko\Bundle\AppBundle\Repository\user\UserDataRepository")
  */
