@@ -9,6 +9,7 @@
 namespace MaximPrihodko\Bundle\AdminBundle\Admin;
 
 
+use MaximPrihodko\Bundle\AppBundle\Entity\user\User;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -21,7 +22,14 @@ class UserAdmin extends AbstractAdmin
         $formMapper
             ->with('Общие данные пользователя')
                 ->add('username', 'text')
-                ->add('password', 'text')
+                ->add('plainPassword', 'repeated', array(
+                    'type' => 'password',
+                    'options' => array('translation_domain' => 'FOSUserBundle'),
+                    'first_options' => array('label' => 'form.password'),
+                    'second_options' => array('label' => 'form.password_confirmation'),
+                    'invalid_message' => 'fos_user.password.mismatch',
+                    'required' => false,
+                ))
                 ->add('email', 'text')
             ->end();
     }
@@ -38,6 +46,21 @@ class UserAdmin extends AbstractAdmin
         $listMapper
             ->addIdentifier('username')
             ->addIdentifier('email');
+    }
 
+
+    public function prePersist($object) {
+        parent::prePersist($object);
+        $this->updateUser($object);
+    }
+
+    public function preUpdate($object) {
+        parent::preUpdate($object);
+        $this->updateUser($object);
+    }
+
+    public function updateUser(User $user) {
+        $um = $this->getConfigurationPool()->getContainer()->get('fos_user.user_manager');
+        $um->updateUser($user, false);
     }
 }
