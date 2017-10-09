@@ -24,11 +24,11 @@ class UserDataType extends AbstractType
             ->add('userData', EntityType::class, [
                 'class' => UserData::class
             ])
-            ->add('name', TextType::class)
-            ->add('surname', TextType::class)
-            ->add('image', TextType::class)
-            ->add('status', IntegerType::class)
-            ->add('company_id', IntegerType::class)
+            ->add('name', TextType::class, ['label' => 'user.name', 'translation_domain' => 'user'])
+            ->add('surname', TextType::class, ['label' => 'user.surname', 'translation_domain' => 'user'])
+            ->add('image', TextType::class, ['label' => 'user.image', 'translation_domain' => 'user'])
+            ->add('status', IntegerType::class, ['label' => 'user.status', 'translation_domain' => 'user'])
+            ->add('company_id', IntegerType::class, ['label' => 'name', 'translation_domain' => 'company'])
         ;
     }
 }
