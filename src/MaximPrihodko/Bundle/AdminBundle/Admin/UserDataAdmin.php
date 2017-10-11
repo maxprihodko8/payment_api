@@ -25,11 +25,11 @@ class UserDataAdmin extends UserAdmin
 
             $formMapper
                 ->with('Данные пользователя')
-                ->add($builder->get('name'))
-                ->add($builder->get('surname'))
-                ->add($builder->get('image'))
-                ->add($builder->get('status'))
-                ->add($builder->get('company_id'))
+                    ->add($builder->get('name'))
+                    ->add($builder->get('surname'))
+                    ->add($builder->get('image'))
+                    //->add($builder->get('status'), 'sonata_type_model')
+                    //->add($builder->get('company_id'), 'sonata_type_model')
                 ->end();
         }
     }
@@ -50,6 +50,10 @@ class UserDataAdmin extends UserAdmin
 
         $listMapper
             ->addIdentifier('name')
-            ->addIdentifier('surname');
+            ->addIdentifier('surname')
+            ->add('company.name')
+            ->add('status.translate')
+        ;
     }
+
 }

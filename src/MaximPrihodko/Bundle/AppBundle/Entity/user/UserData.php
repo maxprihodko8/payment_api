@@ -129,5 +129,4 @@ class UserData extends User
         $this->status = $status;
     }
 
-
 }
